@@ -120,6 +120,7 @@ def _generate_sls_context_legacy(tmplpath, sls):
             "tplfile": template,
             "tpldir": "." if tpldir == "" else tpldir,
             "tpldot": tpldir.replace("/", "."),
+            "tplroot": tpldir.partition("/")[0],
         }
         context.update(tpldata)
     context["slsdotpath"] = slspath.replace("/", ".")
@@ -174,6 +175,7 @@ def _generate_sls_context(tmplpath, sls):
                 tplfile=template,
                 tpldir=slspath if slspath else ".",
                 tpldot=slspath.replace("/", "."),
+                tplroot=slspath.partition("/")[0],
             )
         )
 
